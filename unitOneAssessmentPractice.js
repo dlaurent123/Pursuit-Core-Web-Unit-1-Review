@@ -187,7 +187,7 @@ const fewestStudents = (arr) => {
 // {teacher: "Professor McGonagall", numberOfStudents: 20}
 
 // Uncomment out the next line to test your solution
-runQ9Tests()
+// runQ9Tests()
 
 
 
@@ -198,8 +198,17 @@ runQ9Tests()
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Your output should be in the same order as the input
 
+const doubleAllElements = (arr) => {
+  return arr.map((el) => {
+     return el * 2
+
+  })
+}
+// console.log(doubleAllElements([1,2,3,4]))
+
 // Uncomment out the next line to test your solution
 // runQ10Tests()
+
 
 
 // Question Eleven:
@@ -207,6 +216,14 @@ runQ9Tests()
 // Write a function called onlyLongStrings that removes all strings with 3 or fewer characters
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Your output should be in the same order as the input
+
+const onlyLongStrings = (arr) => {
+  return arr.filter(el => {
+    if (el.length >= 3)
+    return arr
+  })
+}
+
 
 // Uncomment out the next line to test your solution
 // runQ11Tests()
