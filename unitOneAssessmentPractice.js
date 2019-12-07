@@ -101,23 +101,57 @@ const mode = (arr) => {
       output[el] = 1
     }
   })
-  return output
-}
-// console.log(mode(["apple", "apple", "orange", "orange"]))
+  let largestVal = 0
+  let frequentKey = ""
+  for (let key in output){
+    if(output[key] > largestVal){
+      largestVal += output[key]
+      frequentKey = parseInt(key)
+    }
+  }
+  return frequentKey
+ }
+
 
 // Uncomment out the next line to test your solution
-runQ6Tests()
+// runQ6Tests()
 
 // Question Seven: (BONUS)
 // Write a function called median that returns the most median number in an array
 // HINT: You'll need to sort the array first
 // This one's also a bit tricky, feel free to skip it and come back to it.
 
+const median = (arr) => {
+  
+  arr.sort(function(a, b){return a - b})
+  
+  
+  
+  
+  if(arr.length % 2 === 0){
+    let res = arr[((arr.length)/2)] + arr[((arr.length)/2)-1]
+    return res/2
+   
+} else {
+    return arr[(arr.length -1) /2]
+}
+}
+// console.log(median([3, 13, 7, 5, 21, 23, 23, 40, 23, 14, 12, 56, 23, 29]))
+
+
 // Uncomment out the next line to test your solution
 // runQ7Tests()
 
 // Question Eight:
 // Write a function called addAllStudents that takes in an array of Classroom objects (described below) and returns the total number of students
+
+const addAllStudents = (arr) => {
+  let count = 0 
+  arr.forEach((el) => {
+    count += el["numberOfStudents"]
+  })
+  return count
+}
 
 // Sample input:
 // [{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32}, {teacher: "Professor McGonagall", numberOfStudents: 20}]
@@ -132,6 +166,20 @@ runQ6Tests()
 // Question Nine:
 // Write a function called getSmallestClassObject that takes in an array of Classroom objects (described below) and returns the object with the fewest students
 
+const fewestStudents = (arr) => {
+  let fewestStudents = Infinity
+  let fewestStudentsObj = {}
+  arr.forEach((el) => {
+    let numOfStudents = el["numberOfStudents"]
+    
+    if(numOfStudents < fewestStudents){
+      fewestStudents = numOfStudents
+      fewestStudentsObj = el
+    }
+  })
+  return fewestStudentsObj
+}
+
 // Sample input:
 // [{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32}, {teacher: "Professor McGonagall", numberOfStudents: 20}]
 
@@ -139,7 +187,7 @@ runQ6Tests()
 // {teacher: "Professor McGonagall", numberOfStudents: 20}
 
 // Uncomment out the next line to test your solution
-// runQ9Tests()
+runQ9Tests()
 
 
 
